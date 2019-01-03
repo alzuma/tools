@@ -50,4 +50,9 @@ describe('Dictionary tests', () => {
         const result = dictionary.keys();
         expect(result).toEqual(['hi', 'mom!']);
     });
+
+    test('Clears dictionary', () => {
+        dictionary.clear();
+        expect(dictionary.size()).toBe(0);
+    });
 });
