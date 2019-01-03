@@ -100,15 +100,13 @@ describe('LinkedList tests', () => {
 
     test('Test iterate items', () => {
         const expected: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-        let items = list.items();
+        const items = list.items();
+        let next = items.next();
 
         const result: number[] = [];
-        while (true) {
-            const next = items.next();
-            if (next.done) {
-                break;
-            }
+        while (!next.done) {
             result.push(next.value.value);
+            next = items.next();
         }
         expect(result).toEqual(expected);
     });

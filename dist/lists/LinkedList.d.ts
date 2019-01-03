@@ -1,4 +1,4 @@
-import { TFunction } from '../Types';
+import { TConsumer, TFunction } from '../Types';
 export interface INode<T> {
     value: T;
     next?: INode<T>;
@@ -16,6 +16,7 @@ export declare class LinkedList<T> {
     size: () => number;
     isEmpty: () => boolean;
     items(): IterableIterator<INode<T>>;
+    iterate: (accept: TConsumer<T>) => void;
     private deleteFromHead;
     private forgeNode;
     private appendToTheEndOfTheList;

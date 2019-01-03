@@ -1,4 +1,4 @@
-import { TFunction } from '../Types';
+import { TConsumer, TFunction } from '../Types';
 
 export interface INode<T> {
     value: T;
@@ -81,21 +81,13 @@ export class LinkedList<T> {
 
     public toArray = (): T[] => {
         const result: T[] = [];
-        let node = this.head;
-        while (node) {
-            result.push(node.value);
-            node = node.next;
-        }
+        this.iterate(_ => result.push(_));
         return result;
     };
 
     public size = (): number => {
-        let node = this.head;
         let listSize = 0;
-        while (node) {
-            listSize++;
-            node = node.next;
-        }
+        this.iterate(_ => listSize++);
         return listSize;
     };
 
@@ -108,6 +100,14 @@ export class LinkedList<T> {
             node = node.next;
         }
     }
+
+    public iterate = (accept: TConsumer<T>) => {
+        let node = this.head;
+        while (node) {
+            accept(node.value);
+            node = node.next;
+        }
+    };
 
     private deleteFromHead = (value: T): boolean => {
         let deleted: boolean = false;
