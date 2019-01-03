@@ -24,13 +24,13 @@ describe('LinkedList tests', () => {
     });
 
     test('Test previous value at beginning', () => {
-        const five = list.getHead();
-        expect(five.previous).toBeFalsy();
+        const head = list.getHead();
+        expect(head.previous).toBeFalsy();
     });
 
     test('Test previous value at end', () => {
-        const five = list.getTail();
-        expect(five.previous.value).toBe(9);
+        const tail = list.getTail();
+        expect(tail.previous.value).toBe(9);
     });
 
     test('Append in the front of a list', () => {
