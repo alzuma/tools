@@ -1,4 +1,5 @@
 import { TConsumer, TFunction } from '../Types';
+import { IIterable } from './IIterable';
 
 export interface INode<T> {
     value: T;
@@ -6,7 +7,7 @@ export interface INode<T> {
     previous?: INode<T>;
 }
 
-export class LinkedList<T> {
+export class LinkedList<T> implements IIterable<T> {
     private readonly EMPTY_NODE: INode<T> = { value: null, next: null };
     private head: INode<T> = null;
     private tail: INode<T> = null;
