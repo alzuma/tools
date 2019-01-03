@@ -34,7 +34,7 @@ describe('Dictionary tests', () => {
     });
 
     test('Remove from dictionary', () => {
-        expect(dictionary.remove('hi')).toBe(10);
+        expect(dictionary.remove('hi')).toBeTruthy();
     });
 
     test('Remove from dictionary non existing key', () => {

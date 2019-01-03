@@ -21,12 +21,11 @@ export class Dictionary<K, V> implements IIterable<IPair<K, V>> {
         };
     };
 
-    public remove = (key: K): V | false => {
+    public remove = (key: K): boolean => {
         const stringKey = this.generateKey(key);
         if (this.bucket.hasOwnProperty(stringKey)) {
-            const deleteValue = this.bucket[stringKey];
             delete this.bucket[stringKey];
-            return deleteValue.value;
+            return true;
         }
         return false;
     };

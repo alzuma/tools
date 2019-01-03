@@ -8,7 +8,7 @@ export declare class Dictionary<K, V> implements IIterable<IPair<K, V>> {
     private bucket;
     get: (key: K) => V;
     set: (key: K, value: V) => void;
-    remove: (key: K) => false | V;
+    remove: (key: K) => boolean;
     values: () => V[];
     keys: () => K[];
     containsKey: (key: K) => boolean;
