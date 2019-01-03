@@ -2,11 +2,14 @@ import { TConsumer, TFunction } from '../Types';
 export interface INode<T> {
     value: T;
     next?: INode<T>;
+    previous?: INode<T>;
 }
 export declare class LinkedList<T> {
     private readonly EMPTY_NODE;
     private head;
     private tail;
+    getHead: () => INode<T>;
+    getTail: () => INode<T>;
     insert: (value: T) => LinkedList<T>;
     append: (value: T) => LinkedList<T>;
     delete: (value: T) => boolean;

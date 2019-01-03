@@ -18,6 +18,21 @@ describe('LinkedList tests', () => {
         expect(expected).toEqual(list.toArray());
     });
 
+    test('Test previous value', () => {
+        const five = list.find(_ => _ === 5);
+        expect(five.previous.value).toBe(4);
+    });
+
+    test('Test previous value at beginning', () => {
+        const five = list.getHead();
+        expect(five.previous).toBeFalsy();
+    });
+
+    test('Test previous value at end', () => {
+        const five = list.getTail();
+        expect(five.previous.value).toBe(9);
+    });
+
     test('Append in the front of a list', () => {
         const expected: string[] = ['hi', 'mom!'];
         const stringList = new LinkedList<string>();

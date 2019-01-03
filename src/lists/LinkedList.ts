@@ -3,6 +3,7 @@ import { TConsumer, TFunction } from '../Types';
 export interface INode<T> {
     value: T;
     next?: INode<T>;
+    previous?: INode<T>;
 }
 
 export class LinkedList<T> {
@@ -10,9 +11,17 @@ export class LinkedList<T> {
     private head: INode<T> = null;
     private tail: INode<T> = null;
 
+    public getHead = (): INode<T> => this.head;
+    public getTail = (): INode<T> => this.tail;
+
     public insert = (value: T): LinkedList<T> => {
         const node = this.forgeNode(value);
+
         node.next = this.head;
+        if (this.head) {
+            this.head.previous = node;
+        }
+
         this.head = node;
 
         if (!this.tail) {
@@ -123,6 +132,7 @@ export class LinkedList<T> {
     };
 
     private appendToTheEndOfTheList = (node: INode<T>) => {
+        node.previous = this.tail;
         this.tail.next = node;
         this.tail = node;
     };
