@@ -57,6 +57,9 @@ export class LinkedList<T> implements IIterable<T> {
         while (current.next) {
             if (current.next.value === value) {
                 deleted = true;
+                if (current.next.next && current.next.next.previous) {
+                    current.next.next.previous = current;
+                }
                 current.next = current.next.next;
             } else {
                 current = current.next;
@@ -124,6 +127,9 @@ export class LinkedList<T> implements IIterable<T> {
         while (this.head && this.head.value === value) {
             deleted = true;
             this.head = this.head.next;
+            if (this.head) {
+                this.head.previous = null;
+            }
         }
         return deleted;
     };

@@ -33,6 +33,31 @@ describe('LinkedList tests', () => {
         expect(tail.previous.value).toBe(9);
     });
 
+    test('Test previous value after removing', () => {
+        list.delete(5);
+        const six = list.find(_ => _ === 6);
+        expect(six.previous.value).toBe(4);
+    });
+
+    test('Test previous of tail value after removing', () => {
+        list.delete(0);
+        const tail = list.getTail();
+        expect(tail.previous.value).toBe(8);
+    });
+
+    test('Test previous of head value after removing', () => {
+        list.delete(1);
+        const head = list.getHead();
+        expect(head.previous).toBeFalsy();
+    });
+
+    test('Test previous of second node after head removed', () => {
+        list.delete(1);
+        const second = list.find(_ => _ === 3);
+        expect(second.previous.value).toBe(2);
+        expect(second.previous).toEqual(list.getHead());
+    });
+
     test('Append in the front of a list', () => {
         const expected: string[] = ['hi', 'mom!'];
         const stringList = new LinkedList<string>();
