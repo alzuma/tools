@@ -10,7 +10,13 @@ export class Dictionary<K, V> implements IIterable<IPair<K, V>> {
     private bucket: { [key: string]: IPair<K, V> } = {};
 
     public get = (key: K): V | null => {
+        if (key == null) {
+            return null;
+        }
         const pair: IPair<K, V> = this.bucket[this.generateKey(key)];
+        if (pair == null) {
+            return null;
+        }
         return pair.value;
     };
 

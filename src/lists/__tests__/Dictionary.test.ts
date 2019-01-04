@@ -17,6 +17,14 @@ describe('Dictionary tests', () => {
         expect(dictionary.get('mom!')).toBe(5);
     });
 
+    test('Get from dictionary with null key', () => {
+        expect(dictionary.get(null)).toBeFalsy();
+    });
+
+    test('Get from dictionary with non existing key', () => {
+        expect(dictionary.get('<mock>')).toBeFalsy();
+    });
+
     test('Set twice dictionary', () => {
         dictionary.set('mom', 18);
         dictionary.set('mom', 5);
