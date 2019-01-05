@@ -1,5 +1,4 @@
-import { TConsumer, TFunction } from '../Types';
-import { IIterable } from './IIterable';
+import { IIterable, TConsumer, TFunction } from '../Types';
 
 export interface INode<T> {
     value: T;

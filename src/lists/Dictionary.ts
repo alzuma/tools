@@ -1,5 +1,4 @@
-import { IIterable } from './IIterable';
-import { TConsumer } from '../Types';
+import { IIterable, TConsumer } from '../Types';
 
 export interface IPair<K, V> {
     key: K;
@@ -53,6 +52,8 @@ export class Dictionary<K, V> implements IIterable<IPair<K, V>> {
     public clear = () => (this.bucket = {});
 
     public size = (): number => Object.keys(this.bucket).length;
+
+    public isEmpty = (): boolean => this.size() === 0;
 
     public iterate = (accept: TConsumer<IPair<K, V>>) => {
         for (const propertyName in this.bucket) {
