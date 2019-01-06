@@ -5,3 +5,4 @@ export * from './Types';
 export * from './lists/LinkedList';
 export * from './lists/Dictionary';
 export * from './lists/Set';
+export * from './commands/index';
