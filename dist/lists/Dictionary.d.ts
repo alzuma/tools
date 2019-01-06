@@ -6,7 +6,7 @@ export interface IPair<K, V> {
 export declare class Dictionary<K, V> implements IIterable<IPair<K, V>> {
     private bucket;
     get: (key: K) => V;
-    set: (key: K, value: V) => void;
+    add: (key: K, value: V) => void;
     remove: (key: K) => boolean;
     values: () => V[];
     keys: () => K[];

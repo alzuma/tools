@@ -19,7 +19,7 @@ export class Dictionary<K, V> implements IIterable<IPair<K, V>> {
         return pair.value;
     };
 
-    public set = (key: K, value: V) => {
+    public add = (key: K, value: V) => {
         this.bucket[this.generateKey(key)] = {
             key,
             value,

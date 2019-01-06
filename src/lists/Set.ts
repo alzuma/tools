@@ -18,7 +18,7 @@ export class Set<T> implements IIterable<T> {
         if (this.contains(item)) {
             return false;
         }
-        this.dictionary.set(item, {});
+        this.dictionary.add(item, {});
     };
 
     public remove = (item: T): boolean => this.dictionary.remove(item);

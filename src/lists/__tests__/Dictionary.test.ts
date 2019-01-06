@@ -5,8 +5,8 @@ describe('Dictionary tests', () => {
 
     beforeEach(() => {
         dictionary = new Dictionary();
-        dictionary.set('hi', 10);
-        dictionary.set('mom!', 5);
+        dictionary.add('hi', 10);
+        dictionary.add('mom!', 5);
     });
 
     test('Size of dictionary', () => {
@@ -26,8 +26,8 @@ describe('Dictionary tests', () => {
     });
 
     test('Set twice dictionary', () => {
-        dictionary.set('mom', 18);
-        dictionary.set('mom', 5);
+        dictionary.add('mom', 18);
+        dictionary.add('mom', 5);
         expect(dictionary.get('mom!')).toBe(5);
     });
 
