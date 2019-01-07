@@ -12,3 +12,4 @@ tslint.json
 .prettierrc
 /src/**__mocks__/*
 coverage
+jest.config.js
