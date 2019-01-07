@@ -1,6 +1,6 @@
 {
   "name": "@alzuma/tools",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "lib/index",
   "types": "lib/index",
@@ -10,7 +10,7 @@
     "test": "jest",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "release": "rimraf dist && npm run build && npm version patch"
+    "release": "rimraf dist && npm run build && npm version patch && git push && git push --tags && npm publish"
   },
   "keywords": [],
   "author": "Kristaps Vītoliņš",
