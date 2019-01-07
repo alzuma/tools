@@ -10,7 +10,7 @@
     "test": "jest",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "release": "rimraf dist && npm run build && npm version patch && git push && git push --tags && npm publish"
+    "release": "rimraf dist && npm run build && git add -A dist && npm version patch && git push && git push --tags && npm publish --access=public"
   },
   "keywords": [],
   "author": "Kristaps Vītoliņš",
