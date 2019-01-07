@@ -1,5 +1,5 @@
 {
-  "name": "tools",
+  "name": "@alzuma/tools",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index",
@@ -9,10 +9,11 @@
     "build:types": "tsc --emitDeclarationOnly",
     "test": "jest",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tsconfig.json",
+    "release": "rimraf dist && npm run build && npm version patch"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kristaps Vītoliņš",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -25,6 +26,7 @@
     "babel-loader": "^8.0.4",
     "jest": "^23.6.0",
     "prettier": "^1.15.3",
+    "rimraf": "^2.6.3",
     "ts-jest": "^23.10.5",
     "tslint": "^5.12.0",
     "tslint-config-prettier": "^1.17.0",
