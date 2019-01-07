@@ -1,0 +1,13 @@
+src
+.npmrc
+.babelrc
+webpack.config.js
+.idea
+.babelrc
+postcss.config.js
+tsconfig.json
+*.spec.tsx
+/src/**__test__/*
+tslint.json
+.prettierrc
+/src/**__mocks__/*
