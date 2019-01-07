@@ -2,8 +2,8 @@
   "name": "@alzuma/tools",
   "version": "1.0.8",
   "description": "",
-  "main": "lib/index",
-  "types": "lib/index",
+  "main": "dist/index",
+  "types": "dist/index",
   "scripts": {
     "build": "npm run build:types && webpack --mode production",
     "build:types": "tsc --emitDeclarationOnly",
