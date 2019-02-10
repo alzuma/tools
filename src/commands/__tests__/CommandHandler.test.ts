@@ -13,6 +13,6 @@ describe('CommandHandler', () => {
 
         const result = await dispatcher.dispatch(registerUser);
 
-        expect(result).toBeTruthy();
+        expect(result).toBe(true);
     });
 });

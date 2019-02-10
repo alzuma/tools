@@ -8,13 +8,13 @@ export class UserHandler extends CommandHandler {
     constructor() {
         super();
 
-        this.register(RegisterUser, async t => {
-            const asyncTask = new Promise(resolve => {
-                this.fakeRepo.add(t.name, t.age);
-                resolve();
-            });
-
-            await asyncTask;
-        });
+        this.register(RegisterUser, this.registerUser);
     }
+
+    private registerUser = async (user: RegisterUser): Promise<boolean> => {
+        return new Promise(resolve => {
+            this.fakeRepo.add(user.name, user.age);
+            resolve(true);
+        });
+    };
 }
