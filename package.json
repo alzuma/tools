@@ -1,6 +1,6 @@
 {
   "name": "@alzuma/tools",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "",
   "main": "dist/index",
   "types": "dist/index",
