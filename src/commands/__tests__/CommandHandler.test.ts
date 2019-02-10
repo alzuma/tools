@@ -1,11 +1,11 @@
 import { CommandHandlerMap } from '../CommandHandlerMap';
-import { Handlers } from './Handlers';
+import { UserHandler } from './UserHandler';
 import { Dispatcher } from '../Dispatcher';
 import { RegisterUser } from './RegisterUser';
 
 describe('CommandHandler', () => {
     it('Register and execute a command', async () => {
-        const commandHandlerMap = new CommandHandlerMap(new Handlers());
+        const commandHandlerMap = new CommandHandlerMap(new UserHandler());
 
         const dispatcher = new Dispatcher(commandHandlerMap);
 

@@ -2,7 +2,7 @@ import { CommandHandler } from '../CommandHandler';
 import { Dictionary } from '../..';
 import { RegisterUser } from './RegisterUser';
 
-export class Handlers extends CommandHandler {
+export class UserHandler extends CommandHandler {
     private fakeRepo: Dictionary<string, number> = new Dictionary();
 
     constructor() {
