@@ -1,14 +1,17 @@
 import { CommandHandler } from '../CommandHandler';
-import { ShareName } from './ShareName';
+import { Dictionary } from '../..';
+import { RegisterUser } from './RegisterUser';
 
 export class Handlers extends CommandHandler {
+    private fakeRepo: Dictionary<string, number> = new Dictionary();
+
     constructor() {
         super();
 
-        this.register(ShareName, async t => {
+        this.register(RegisterUser, async t => {
             const asyncTask = new Promise(resolve => {
-                const message: string = t.messageComposer(t.name, t.age);
-                resolve(message);
+                this.fakeRepo.add(t.name, t.age);
+                resolve();
             });
 
             await asyncTask;
