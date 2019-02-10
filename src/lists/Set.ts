@@ -1,5 +1,5 @@
 import { Dictionary } from './Dictionary';
-import { IIterable, TConsumer } from '../Types';
+import { IIterable, Consumer } from '../Types';
 
 export class Set<T> implements IIterable<T> {
     private dictionary: Dictionary<T, {}> = new Dictionary();
@@ -25,7 +25,7 @@ export class Set<T> implements IIterable<T> {
 
     public contains = (item: T) => this.dictionary.containsKey(item);
 
-    public iterate = (accept: TConsumer<T>) => {
+    public iterate = (accept: Consumer<T>) => {
         this.dictionary.iterate(a => {
             accept(a.key);
         });

@@ -1,14 +1,14 @@
-import { TSupplier } from './Types';
+import { Supplier } from './Types';
 
 export class Lazy<T> {
-    public static of = <T>(supplier: TSupplier<T>): Lazy<T> => {
+    public static of = <T>(supplier: Supplier<T>): Lazy<T> => {
         return new Lazy<T>(supplier);
     };
 
     private value: T = null;
-    private readonly supplier: TSupplier<T>;
+    private readonly supplier: Supplier<T>;
 
-    private constructor(supplier: TSupplier<T>) {
+    private constructor(supplier: Supplier<T>) {
         this.supplier = supplier;
     }
 

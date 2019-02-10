@@ -1,9 +1,9 @@
 import Optional from 'typescript-optional';
 import { Pair } from './Pair';
-import { TFunction } from './Types';
+import { Func } from './Types';
 
 export class Either<L, R> {
-    public static liftWithValue = <T, R>(f: TFunction<T, R>): TFunction<T, Either<Pair<Error, T>, R>> => {
+    public static liftWithValue = <T, R>(f: Func<T, R>): Func<T, Either<Pair<Error, T>, R>> => {
         return (t: T) => {
             try {
                 return Either.Right(f(t));
@@ -34,14 +34,14 @@ export class Either<L, R> {
     public isLeft = (): boolean => this.left !== null;
     public isRight = (): boolean => this.right !== null;
 
-    public mapLeft = <T>(mapper: TFunction<L, T>): Optional<T> => {
+    public mapLeft = <T>(mapper: Func<L, T>): Optional<T> => {
         if (this.isLeft()) {
             return Optional.of(mapper(this.left));
         }
         return Optional.empty();
     };
 
-    public mapRight = <T>(mapper: TFunction<R, T>): Optional<T> => {
+    public mapRight = <T>(mapper: Func<R, T>): Optional<T> => {
         if (this.isRight()) {
             return Optional.of(mapper(this.right));
         }

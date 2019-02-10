@@ -1,5 +1,5 @@
 import { Either } from '../Either';
-import { TFunction } from '../Types';
+import { Func } from '../Types';
 
 describe('Either tests', () => {
     test('Is left', () => {
@@ -49,7 +49,7 @@ describe('Either tests', () => {
     test('test value lift all values good', () => {
         const data: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-        const doMath: TFunction<number, number> = (n: number) => n * 10;
+        const doMath: Func<number, number> = (n: number) => n * 10;
 
         const result = data
             .map(Either.liftWithValue(doMath))
@@ -61,7 +61,7 @@ describe('Either tests', () => {
     test('test value lift throw error in 5', () => {
         const data: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-        const doMath: TFunction<number, number> = (n: number) => {
+        const doMath: Func<number, number> = (n: number) => {
             if (n === 5) {
                 throw Error('Me no like 5');
             }

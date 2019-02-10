@@ -1,4 +1,4 @@
-import { IIterable, TConsumer, TFunction } from '../Types';
+import { IIterable, Consumer, Func } from '../Types';
 
 export interface INode<T> {
     value: T;
@@ -71,7 +71,7 @@ export class LinkedList<T> implements IIterable<T> {
         return deleted;
     };
 
-    public find = (compare: TFunction<T, boolean>): INode<T> => {
+    public find = (compare: Func<T, boolean>): INode<T> => {
         if (this.isEmpty()) {
             return null;
         }
@@ -113,7 +113,7 @@ export class LinkedList<T> implements IIterable<T> {
         }
     }
 
-    public iterate = (accept: TConsumer<T>) => {
+    public iterate = (accept: Consumer<T>) => {
         let node = this.head;
         while (node) {
             accept(node.value);
