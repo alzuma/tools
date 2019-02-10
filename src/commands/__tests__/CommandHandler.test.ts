@@ -1,6 +1,6 @@
-import { ShareName } from '../test/TestCommand';
+import { ShareName } from './ShareName';
 import { CommandHandlerMap } from '../CommandHandlerMap';
-import { TestCommandHandler } from '../test/TestCommandHandler';
+import { Handlers } from './Handlers';
 import { Dispatcher } from '../Dispatcher';
 
 describe('CommandHandler', () => {
@@ -9,8 +9,8 @@ describe('CommandHandler', () => {
             return `${name}:${age}`;
         });
 
-        const chm = new CommandHandlerMap(new TestCommandHandler());
-        const testCommandDispatcher = new Dispatcher(chm);
+        const commandHandlerMap = new CommandHandlerMap(new Handlers());
+        const testCommandDispatcher = new Dispatcher(commandHandlerMap);
 
         await testCommandDispatcher.dispatch(new ShareName({ age: 10, name: 'son', messageComposer }));
         expect(messageComposer).toBeCalledTimes(1);
