@@ -1,6 +1,6 @@
-import { TSupplier } from './Types';
+import { Supplier } from './Types';
 export declare class Lazy<T> {
-    static of: <T_1>(supplier: TSupplier<T_1>) => Lazy<T_1>;
+    static of: <T_1>(supplier: Supplier<T_1>) => Lazy<T_1>;
     private value;
     private readonly supplier;
     private constructor();

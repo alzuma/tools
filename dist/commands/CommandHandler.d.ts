@@ -1,5 +1,5 @@
-import { Dictionary, TFunction } from '..';
+import { Dictionary, Func } from '..';
 export declare class CommandHandler {
-    readonly handlers: Dictionary<string, TFunction<object, Promise<void>>>;
-    protected register: <T extends object>(c: new () => T, handler: TFunction<T, Promise<void>>) => void;
+    readonly handlers: Dictionary<string, Func<object, Promise<void>>>;
+    protected register: <T extends object>(c: new () => T, handler: Func<T, Promise<void>>) => void;
 }

@@ -1,4 +1,4 @@
-import { IIterable, TConsumer, TFunction } from '../Types';
+import { IIterable, Consumer, Func } from '../Types';
 export interface INode<T> {
     value: T;
     next?: INode<T>;
@@ -13,13 +13,13 @@ export declare class LinkedList<T> implements IIterable<T> {
     insert: (value: T) => LinkedList<T>;
     append: (value: T) => LinkedList<T>;
     delete: (value: T) => boolean;
-    find: (compare: TFunction<T, boolean>) => INode<T>;
+    find: (compare: Func<T, boolean>) => INode<T>;
     fromArray: (values: T[]) => LinkedList<T>;
     toArray: () => T[];
     size: () => number;
     isEmpty: () => boolean;
     items(): IterableIterator<INode<T>>;
-    iterate: (accept: TConsumer<T>) => void;
+    iterate: (accept: Consumer<T>) => void;
     private deleteFromHead;
     private forgeNode;
     private appendToTheEndOfTheList;

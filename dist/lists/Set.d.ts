@@ -1,4 +1,4 @@
-import { IIterable, TConsumer } from '../Types';
+import { IIterable, Consumer } from '../Types';
 export declare class Set<T> implements IIterable<T> {
     private dictionary;
     size: () => number;
@@ -9,7 +9,7 @@ export declare class Set<T> implements IIterable<T> {
     add: (item: T) => boolean;
     remove: (item: T) => boolean;
     contains: (item: T) => boolean;
-    iterate: (accept: TConsumer<T>) => void;
+    iterate: (accept: Consumer<T>) => void;
     /***
      * Removes item from this set if set B doesn't contain item
      * @param setB set B
